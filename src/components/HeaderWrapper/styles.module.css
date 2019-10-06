@@ -1,0 +1,33 @@
+.container {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: #fff;
+}
+
+.button {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0px;
+  background: #fc2c38;
+  border: solid 1px #fc2c38;
+  border-radius: 4px;
+  padding: 9px 16px 11px;
+  white-space: nowrap;
+  height: 42px;
+  color: #fff;
+  text-decoration: none;
+  transition: all 200ms;
+
+  &:hover {
+    background: #ed1438;
+  }
+}
+
+.right {
+  display: flex;
+  height: 80px;
+  align-items: center;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './App';
+import { HeaderWrapper } from './components';
 
 const rootElement = document.createElement('div');
 rootElement.setAttribute('id', 'root');
@@ -12,7 +12,7 @@ if (scriptElement !== null && scriptElement.parentNode !== null) {
 
 render(
   <div className="myTarget-header">
-    <App />
+    <HeaderWrapper />
   </div>,
   document.getElementById('root'),
 );

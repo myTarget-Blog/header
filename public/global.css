@@ -1,4 +1,38 @@
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('https://static.tildacdn.com/tild3366-3632-4838-a534-363939333064/Proxima_Nova_Light.woff') format('woff');
+  font-weight: 300;
+  font-style: light;
+}
+
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('https://static.tildacdn.com/tild6662-3632-4464-b030-353937623961/Proxima_Nova_Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('https://static.tildacdn.com/tild3639-3465-4666-a238-663639346663/Proxima_Nova_Semibol.woff') format('woff');
+  font-weight: 600;
+  font-style: semi-bold;
+}
+
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('https://static.tildacdn.com/tild3766-3231-4663-b464-383263616537/Proxima_Nova_Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: bold;
+}
+
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'ProximaNova', Arial, sans-serif;
+  background: #f0f0f0;
 }

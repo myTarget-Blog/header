@@ -1,3 +1,6 @@
+import HeaderWrapper from './HeaderWrapper';
+import List from './List';
 import Logo from './Logo';
+import Search from './Search';
 
-export { Logo };
+export { HeaderWrapper, List, Logo, Search };
