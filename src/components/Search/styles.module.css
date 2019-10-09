@@ -3,4 +3,67 @@
   height: 36px;
   padding: 10px;
   margin-left: 40px;
+  cursor: pointer;
+}
+
+.searchPages {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background: #fff;
+  width: 700px;
+}
+
+.searchInput {
+  height: 40px;
+  padding: 8px 10px;
+  padding-left: 50px;
+  appearance: none;
+  border: 0;
+  color: #333333;
+  border-radius: 4px;
+  outline: 0;
+  font-size: 16px;
+  min-width: 460px;
+  background: url(./images/searchIcon.svg) no-repeat 12px center;
+  background-color: #f0f0f0;
+}
+
+.searchClose {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.searchInputContainer {
+  pointer-events: all;
+  position: relative;
+}
+
+.searchButton {
+  color: #ffffff;
+  border: 0px solid #fc2c38;
+  background-color: #fc2c38;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out,
+    border-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+  height: 40px;
+  width: 120px;
+  padding: 0;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 20px;
 }
