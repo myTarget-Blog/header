@@ -18,6 +18,7 @@
   pointer-events: none;
   background: #fff;
   width: 700px;
+  pointer-events: all;
 }
 
 .searchInput {

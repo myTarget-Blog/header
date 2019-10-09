@@ -9,9 +9,15 @@ export default class SearchResults extends React.Component {
       hasRequests: false
     };
   }
+
   renderItem(item, index) {
     return (
-      <a href={item.pageurl} className={styles.resultItem} key={index}>
+      <a
+        href={item.pageurl}
+        target="__blank"
+        className={styles.resultItem}
+        key={index}
+      >
         <div
           className={styles.title}
           dangerouslySetInnerHTML={{ __html: item.title }}
@@ -32,15 +38,24 @@ export default class SearchResults extends React.Component {
     );
   }
 
+  renderAll() {
+    if (this.props.pages)
+      return (
+        <div className={styles.showAll} onClick={this.handleShowPopup}>
+          Показать все результаты
+        </div>
+      );
+
+    return;
+  }
+
   render() {
     return (
       <div className={styles.container}>
         {this.props.pages
           ? this.props.pages.map(this.renderItem)
           : this.renderEmpty()}
-        <div className={styles.showAll} onClick={this.handleShowPopup}>
-          Показать все результаты
-        </div>
+        {this.renderAll()}
       </div>
     );
   }

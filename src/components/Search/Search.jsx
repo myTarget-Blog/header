@@ -3,6 +3,7 @@ import { SearchResults } from "../";
 import styles from "./styles.module.css";
 import * as images from "./images";
 import { search } from "../../api/";
+import Popup from "../Popup";
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ export default class Search extends React.Component {
 
     this.state = {
       pagin: 0,
+      currentPage: 1,
       pages: [],
       searchVisible: false,
       searchValue: "",
@@ -23,14 +25,16 @@ export default class Search extends React.Component {
       searchValue: input.target.value
     });
 
-    search(input.target.value).then(e => {
-      const { pages, pagin } = e.data;
-      this.setState({
-        pages,
-        pagin,
-        hasRequests: true
-      });
-    });
+    search({ value: input.target.value, page: this.state.currentPage }).then(
+      e => {
+        const { pages, pagin } = e.data;
+        this.setState({
+          pages,
+          pagin,
+          hasRequests: true
+        });
+      }
+    );
   };
 
   handleToggleSearch = () => {
@@ -46,12 +50,29 @@ export default class Search extends React.Component {
   };
 
   handleShowPopup = () => {
+    if (this.state.searchVisible && this.state.searchValue)
+      this.setState({
+        showPopup: true
+      });
+  };
+
+  handleChangePage = currentPage => () => {
     this.setState({
-      showPopup: true
+      currentPage
+    });
+
+    search({ value: this.state.searchValue, page: currentPage }).then(e => {
+      const { pages, pagin } = e.data;
+      this.setState({
+        pages,
+        pagin,
+        hasRequests: true
+      });
     });
   };
 
   handleHidePopup = () => {
+    this.handleChangePage(1)();
     this.setState({
       showPopup: false
     });
@@ -73,7 +94,9 @@ export default class Search extends React.Component {
             onClick={this.handleClearValues}
           />
         </div>
-        <button className={styles.searchButton}>Найти</button>
+        <button className={styles.searchButton} onClick={this.handleShowPopup}>
+          Найти
+        </button>
       </div>
     );
   }
@@ -86,6 +109,16 @@ export default class Search extends React.Component {
           <SearchResults
             pages={this.state.pages}
             handleShowPopup={this.handleShowPopup}
+          />
+        )}
+        {this.state.showPopup && (
+          <Popup
+            handleChangePage={this.handleChangePage}
+            query={this.state.searchValue}
+            pages={this.state.pages}
+            pagin={this.state.pagin}
+            handleHidePopup={this.handleHidePopup}
+            currentPage={this.state.currentPage}
           />
         )}
         <div class={styles.menuSearch}>
